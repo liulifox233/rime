@@ -24,7 +24,7 @@ app_options: {} # 清除应用默认输入法，防止无法输入中文（建�
 style:
   color_scheme: macos14 # 主题方案
   color_scheme_dark: macos14_dark # 指定深色模式时输入法所使用的主题方案
-  translucency: true # 背景半透明总开关，不需要关掉即可
+  translucency: false # 背景半透明总开关，不需要关掉即可
 
   # 是否将选定的候选项作为文本嵌入到输入框中
   inline_candidate: false

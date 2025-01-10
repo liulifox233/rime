@@ -24,7 +24,7 @@ switches:
     # reset: 0 # 默认状态: 0 简体 1 繁体
     states: [简, 繁]
   - name: emoji_suggestion
-    # reset: 1 # 默认状态: 0 关闭 1 开启
+    reset: 1 # 默认状态: 0 关闭 1 开启
     states: [🈚️️, 🈶️]
 
 engine:
@@ -100,12 +100,12 @@ speller:
     # - derive/^fu$/hu/ # hu -> fu
 
     # 韵母部分
-    - derive/([^iu])([a])n$/$1$2ng/ # ang -> an
-    - derive/([^iu])([a])ng$/$1$2n/ # an -> ang
+    # - derive/([^iu])([a])n$/$1$2ng/ # ang -> an
+    # - derive/([^iu])([a])ng$/$1$2n/ # an -> ang
     - derive/([e])n$/$1ng/ # eng -> en
     - derive/([e])ng$/$1n/ # en -> eng
-    # - derive/([i])n$/$1ng/ # ing -> in
-    # - derive/([i])ng$/$1n/ # in -> ing
+    - derive/([i])n$/$1ng/ # ing -> in
+    - derive/([i])ng$/$1n/ # in -> ing
     # - derive/([i])an$/$1ang/ # iang -> ian
     # - derive/([i])ang$/$1an/ # ian -> iang
     # - derive/([u])an$/$1ang/ # uang -> uan
@@ -121,9 +121,9 @@ speller:
     # 容错拼写
     - derive/^([nl])ve$/$1ue/ # nue -> nve, lue -> lve
     - derive/^([jqxy])u/$1v/ # jv -> ju
-    # - derive/un$/uen/ # guen -> gun
-    # - derive/ui$/uei/ # guei -> gui
-    # - derive/iu$/iou/ # jiou -> jiu
+    - derive/un$/uen/ # guen -> gun
+    - derive/ui$/uei/ # guei -> gui
+    - derive/iu$/iou/ # jiou -> jiu
 
     # 按键纠错
     - derive/([aeiou])ng$/$1gn/ # dagn -> dang

@@ -80,7 +80,7 @@ key_binder:
     # 候选操作
     # ; 二选 ' 三选
     - { when: has_menu, accept: semicolon, send: 2 } # 输入时「;」二选
-    # - { when: has_menu, accept: apostrophe, send: 3 } # 输入时「'」三选
+    - { when: has_menu, accept: apostrophe, send: 3 } # 输入时「'」三选
 
     # Rime key bindings
     # numbered mode switch
