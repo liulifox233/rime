@@ -1,0 +1,43 @@
+name: Update Dicts
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - id: check
+        name: Get byrdocs-check release
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: byrdocs
+          repo: byrdocs-check
+
+      - name: Get byrdocs-cli version
+        id: get_version
+        run: echo "version=$(pip list --format freeze | grep byrdocs_cli | cut -d'=' -f3)" >> "$GITHUB_OUTPUT"
+
+      - name: Generate formula
+        run: PYTHONPATH=Homebrew-formula-generator python -m poet -f byrdocs-cli > byrdocs-cli.rb
+
+      - name: Setup GIT user
+        uses: fregante/setup-git-user@v1
+
+      - name: Update formula
+        run: |
+          git add byrdocs-cli.rb
+          git commit -m "Update byrdocs-cli formula to version ${{ steps.get_version.outputs.version }}"
+          git tag "v${{ steps.get_version.outputs.version }}"
+          git push origin
+          git push --tags -f
