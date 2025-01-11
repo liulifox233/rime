@@ -28,4 +28,7 @@ import_tables:
 
   # emoji 中的词库
   - dicts/emoji
+
+  # nmbxd 颜文字
+  - dicts/nmbxd
 ...
