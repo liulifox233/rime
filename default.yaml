@@ -23,8 +23,8 @@ switcher:
   abbreviate_options: true
   option_list_separator: "/"
 
-# menu:
-#   page_size: 4
+menu:
+  page_size: 4
 
 punctuator:
   full_shape:
