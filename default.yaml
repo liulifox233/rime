@@ -46,7 +46,7 @@ recognizer:
     unicode: "^U[a-f0-9]+" # 响应 Unicode
 
 ascii_composer:
-  good_old_caps_lock: true
+  good_old_caps_lock: false
   switch_key:
     Shift_L: noop
     Shift_R: commit_code # macOS 上此项无效，Windows 可用右 Shift 切换中英输入

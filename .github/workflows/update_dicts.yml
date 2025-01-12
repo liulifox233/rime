@@ -23,13 +23,22 @@ jobs:
         run: |
           wget https://github.com/outloudvi/mw2fcitx/releases/download/${{ steps.release.outputs.release }}/moegirl.dict.yaml -O ./dicts/moegirl.dict.yaml
 
+      - name: Get rime-ice dicts
+        run: |
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/41448.dict.yaml -O ./dicts/41448.dict.yaml
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/8105.dict.yaml -O ./dicts/8105.dict.yaml
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/base.dict.yaml -O ./dicts/base.dict.yaml
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/ext.dict.yaml -O ./dicts/ext.dict.yaml
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/others.dict.yaml -O ./dicts/others.dict.yaml
+          wget https://raw.githubusercontent.com/iDvel/rime-ice/refs/heads/main/cn_dicts/tencent.dict.yaml -O ./dicts/tencent.dict.yaml
+
       - name: Setup GIT user
         uses: fregante/setup-git-user@v1
 
       - id: commit
         name: Commit
         run: |
-          git add ./dicts/moegirl.dict.yaml
+          git add ./dicts
           git commit -m "ci: auto update dicts: $(date +'%Y-%m-%d')"
           if git diff --quiet HEAD origin/master; then
             echo "No changes detected"

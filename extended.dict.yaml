@@ -31,4 +31,12 @@ import_tables:
 
   # nmbxd 颜文字
   - dicts/nmbxd
+
+  # rime-ice
+  - dicts/41448
+  - dicts/8105
+  - dicts/base
+  - dicts/ext
+  - dicts/others
+  - dicts/tencent
 ...
